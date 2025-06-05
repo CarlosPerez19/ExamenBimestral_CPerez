@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Noticias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-button expand="block" color="danger" (click)="logout()">
+    <ion-icon name="log-out-outline" slot="start"></ion-icon>
+    Cerrar sesión
+  </ion-button>
+
+  <ion-button expand="block" color="danger" (click)="goToUpload()">
+    <ion-icon name="log-out-outline" slot="start"></ion-icon>
+    Actualizar Foto de Perfil
+  </ion-button>
+
+  <div #postsContainer class="posts-container">
+    <div *ngFor="let character of characterImages" class="post-row">
+      <div class="post-bubble">
+        <p><strong>Nuevo personaje añadido:</strong></p>
+        <img [src]="character.image" alt="Imagen del personaje" style="width: 100%; max-width: 300px; border-radius: 8px; margin-top: 0.5rem;" />
+      </div>
+    </div>
+
+    <div *ngFor="let post of news" class="post-row">
+      <img *ngIf="userProfiles[post['user_id']]?.photo_url"
+           [src]="userProfiles[post['user_id']]?.photo_url"
+           class="avatar" alt="avatar" />
+      <div class="post-bubble">
+        <h3>{{ post.title }}</h3>
+        <b>{{ userProfiles[post['user_id']]?.username || post['user_id'] }}</b>
+        <p>{{ post.content }}</p>
+        <div *ngIf="isImagePost(post)">
+          <img [src]="post.image_url" alt="Imagen de la noticia" />
+        </div>
+        <div *ngIf="hasLocation(post)">
+          <p><strong>Ubicación:</strong></p>
+          <a [href]="post.location_url" target="_blank">{{ post.location_url }}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <form (ngSubmit)="publishNews()" class="news-form">
+    <input [(ngModel)]="title" name="title" placeholder="Título de la noticia..." required />
+    <textarea [(ngModel)]="content" name="content" placeholder="Contenido..." required></textarea>
+
+    <!-- Vista previa de la imagen -->
+    <div *ngIf="imageUrl" class="image-preview">
+      <img [src]="imageUrl" alt="Imagen capturada" />
+    </div>
+
+    <!-- Vista previa de la ubicación -->
+    <div *ngIf="locationUrl">
+      <p><strong>Ubicación actual:</strong></p>
+      <a [href]="locationUrl" target="_blank">{{ locationUrl }}</a>
+    </div>
+
+    <button type="submit" [disabled]="!title.trim() || !content.trim()">Publicar</button>
+  </form>
+
+  <!-- Botones de acción -->
+  <ion-button expand="full" fill="outline" (click)="goToCamera()">
+    <ion-icon name="camera-outline" slot="start"></ion-icon>
+    Tomar Foto
+  </ion-button>
+
+  <ion-button expand="full" fill="outline" (click)="goToGPS()">
+    <ion-icon name="location-outline" slot="start"></ion-icon>
+    Añadir Ubicación
+  </ion-button>
+
+  <ion-button expand="full" fill="outline" (click)="goToAPI()">
+    <ion-icon name="location-outline" slot="start"></ion-icon>
+    API
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,112 @@
+/* Estilos generales del contenido */
+ion-content {
+  padding: 10px;
+}
+
+.post-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.post-bubble {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  margin-left: 10px;
+  flex: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Estilo para la imagen del personaje */
+img {
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.image-preview {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.image-preview img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Estilo para la imagen de perfil (avatar) */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid #ccc; /* Borde sutil alrededor del avatar */
+}
+
+/* Estilo para los botones de acción */
+ion-button {
+  margin: 10px 0;
+}
+
+/* Estilo para la sección de formularios */
+.news-form {
+  margin-top: 20px;
+}
+
+.news-form input,
+.news-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.news-form button {
+  width: 100%;
+  background-color: #3880ff;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.news-form button:disabled {
+  background-color: #aaa;
+}
+
+.news-form ion-select {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Añadir más espacio entre los posts */
+.posts-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el enlace de la ubicación */
+a {
+  color: #3880ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+

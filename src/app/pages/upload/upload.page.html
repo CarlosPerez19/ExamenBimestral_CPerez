@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Subir Archivo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="upload-content ion-padding">
+  <ion-button expand="block" color="primary" (click)="goToHome()">
+    <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+    Volver
+  </ion-button>
+
+  <div class="upload-container">
+    <ion-item lines="none" class="upload-item">
+      <ion-label>Selecciona archivo</ion-label>
+      <input type="file" (change)="onFileSelected($event)" class="custom-file-input" />
+    </ion-item>
+
+    <ion-button expand="block" color="success" (click)="uploadFile()">
+      <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+      Subir Archivo
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Autenticación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding auth-content">
+  <div class="auth-card">
+    <ion-item>
+      <ion-label position="stacked">Correo</ion-label>
+      <ion-input [(ngModel)]="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nombre de usuario</ion-label>
+      <ion-input [(ngModel)]="username" type="text"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" class="login-btn" (click)="login()">Iniciar Sesión</ion-button>
+    <ion-button expand="block" class="register-btn" (click)="register()">Registrarse</ion-button>
+
+    <p *ngIf="error" class="error-message">{{ error }}</p>
+  </div>
+</ion-content>

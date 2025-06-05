@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Buscar Personaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    (ionClear)="foundCharacters=[]; errorMessage='';"
+    (ionSubmit)="searchCharacter()"
+    placeholder="Ej. Rick, Morty, Beth">
+  </ion-searchbar>
+
+  <ion-button expand="block" class="api-btn" (click)="searchCharacter()">Buscar</ion-button>
+
+  <ion-spinner *ngIf="loading" name="dots"></ion-spinner>
+
+  <ion-button expand="block" class="api-btn" (click)="goToChat()">Volver</ion-button>
+
+  <div *ngIf="errorMessage && !loading" class="api-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <ion-list *ngIf="foundCharacters.length > 0 && !loading">
+    <ion-item *ngFor="let character of foundCharacters" (click)="goToDetails(character)">
+      <ion-thumbnail slot="start">
+        <img [src]="character.image" alt="{{ character.name }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ character.name }}</h2>
+        <p>{{ character.species }} | {{ character.status }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="!loading && !errorMessage && searchTerm && foundCharacters.length === 0" class="api-message">
+    <p>No se encontraron personajes.</p>
+  </div>
+</ion-content>

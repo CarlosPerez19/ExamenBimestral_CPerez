@@ -1,0 +1,67 @@
+.details-content {
+  background: linear-gradient(135deg, #e0e7fa 0%, #f0fdfa 100%);
+  min-height: 100vh;
+}
+
+.character-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 32px 20px 24px 20px;
+  max-width: 400px;
+  margin: 40px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.character-img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.09);
+  margin-bottom: 18px;
+}
+
+.character-card p {
+  font-size: 16px;
+  color: #374151;
+  margin: 0 0 6px 0;
+}
+
+.save-btn {
+  margin-top: 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.07);
+}
+
+.back-btn {
+  margin-bottom: 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.07);
+}
+
+.error-message {
+  color: #ef4444;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 18px;
+  font-size: 16px;
+}
+
+@media (max-width: 500px) {
+  .character-card {
+    max-width: 98vw;
+    padding: 16px 4vw;
+  }
+  .character-img {
+    max-width: 90vw;
+  }
+}
